@@ -14,7 +14,7 @@
           <span>Usuario (Clave Pública)</span>
         </div><br>
         <div class="textField">
-          <input type="text" class="textField">
+          <input #user type="text" class="textField">
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <span>Contraseña</span>
         </div><br>
         <div class="textField">
-          <input type="text" class="textField">
+          <input #pass type="password" class="textField">
         </div>
       </div>
     </div>
@@ -34,12 +34,21 @@
           <span>Confirmar Contraseña</span>
         </div><br>
         <div class="textField">
-          <input type="text" class="textField">
+          <input #pass2 type="password" class="textField">
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-12">
+        <p class="alerta">
+          <ngb-alert *ngIf="!same" (close)="same = true" [dismissible]="false">
+            <strong>Atención!</strong> Las contraseñas deben ser las mismas
+          </ngb-alert>
+        </p>
+      </div>
+    </div>
     <div class="createButton">
-      <a href="#">Crear Cuenta</a>
+      <a (click)="addUser(user.value, pass.value, pass2.value)" href="#">Crear Cuenta</a>
     </div>
   </div>
 </div>

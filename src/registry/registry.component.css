@@ -42,6 +42,11 @@ div.textField input{
   border: 0;
 }
 
+p.alerta{
+  margin-top: 15px;
+  margin-bottom: -75px;
+}
+
 div.createButton{
   background-color: #094293;
   text-align: center;
