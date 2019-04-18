@@ -5,7 +5,10 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DocumentoComponent} from '../documento/documento.component';
 import {CedulaComponent} from '../nueva-cedula/nuevacedula.component';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment} from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 //Dropdowns Material Imports
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,6 +21,10 @@ import{ MatDatepickerModule} from '@angular/material/datepicker';
 import{MatNativeDateModule} from '@angular/material';
 
 
+import {RouterModule, Routes,ActivatedRoute} from '@angular/router';
+const appRoutes : Routes=[
+  {path : 'nuevacedula/:key', component : CedulaComponent}
+];
 
 @NgModule({
   declarations: [
@@ -32,11 +39,15 @@ import{MatNativeDateModule} from '@angular/material';
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
+
 
 
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

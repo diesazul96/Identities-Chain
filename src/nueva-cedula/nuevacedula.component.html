@@ -8,10 +8,10 @@
 
       <div class="formCedula">
         <p>Nombre</p>
-        <input type="text" style="margin-bottom:5%;"/><br>
+        <input class="input" #nombre type="text" style="margin-bottom:5%;"/><br>
         <p>Fecha de Nacimiento</p>
           <mat-form-field>
-            <input class="date" matInput [matDatepicker]="simpleDate"  readonly>
+            <input #fecha class="date input" matInput [matDatepicker]="simpleDate"  readonly>
             <mat-datepicker-toggle class="toggle" matSuffix [for]="simpleDate" >
             </mat-datepicker-toggle>
             <mat-datepicker #simpleDate></mat-datepicker>
@@ -20,11 +20,11 @@
           <div class="col-lg-6 col-md-6 col-6">
             <p>G.S</p>
             <mat-form-field>
-              <select matNativeControl required>
-                  <option value="gsO">O</option>
-                  <option value="gsA">A</option>
-                  <option value="gsB">B</option>
-                  <option value="gsAB">AB</option>
+              <select #gs matNativeControl required>
+                  <option value="O">O</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="AB">AB</option>
 
               </select>
             </mat-form-field>
@@ -32,32 +32,32 @@
           <div class="col-lg-6 col-md-6 col-6">
             <p>RH</p>
             <mat-form-field>
-              <select matNativeControl required>
-                  <option value="gs-">+</option>
-                  <option value="gs+">-</option>
+              <select #rh matNativeControl required>
+                  <option value="+">+</option>
+                  <option value="-">-</option>
               </select>
             </mat-form-field>
           </div>
         </div>
         <p>Departamento</p>
         <mat-form-field>
-          <select matNativeControl required>
-              <option value="antioquia">Antioquia</option>
-              <option value="arauca">Arauca</option>
-              <option value="atlantico">Atlántico</option>
-              <option value="bolivar">Bolivar</option>
-              <option value="boyaca">Boyacá</option>
-              <option value="boyaca">Cundinamarca</option>
+          <select #depto matNativeControl required>
+              <option value="Antioquia">Antioquia</option>
+              <option value="Arauca">Arauca</option>
+              <option value="Atlántico">Atlántico</option>
+              <option value="Bolivar">Bolivar</option>
+              <option value="Boyacá">Boyacá</option>
+              <option value="Cundinamarca">Cundinamarca</option>
           </select>
         </mat-form-field>
         <p>Ciudad</p>
 
         <mat-form-field>
-          <select matNativeControl required>
-              <option value="bogota">Bogotá</option>
-              <option value="chia">Chía</option>
-              <option value="faca">Facatativá</option>
-              <option value="bolivar">Cajicá</option>
+          <select #ciudad matNativeControl required>
+              <option value="Bogotá">Bogotá</option>
+              <option value="Chía">Chía</option>
+              <option value="Facatativáca">Facatativá</option>
+              <option value="Cajicá">Cajicá</option>
           </select>
         </mat-form-field>
 
@@ -66,17 +66,17 @@
         <div class="row">
           <div class="col-lg-6 col-md-6 col-6">
             <div class="radio">
-              <label><input type="radio" name="optradio">Masculino</label>
+              <label><input class="input" [(ngModel)]="genre" value="masculino" type="radio" name="optradio">Masculino</label>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-6">
             <div class="radio">
-              <label><input type="radio" name="optradio">Femenino</label>
+              <label><input class="input" [(ngModel)]="genre" value="femenino" type="radio" name="optradio">Femenino</label>
             </div>
           </div>
         </div>
 
-        <button type="button" class="btn btn-default newCedBoton">Crear</button>
+        <button type="button" class="btn btn-default newCedBoton" (click)="createCedula(nombre.value,fecha.value,gs.value,rh.value,depto.value,ciudad.value,genre.value)">Crear</button>
 
       </div>
 
