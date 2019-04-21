@@ -14,20 +14,20 @@
             <p>Usuario</p>
           </div><br>
           <div class="fieldLine">
-            <input type="text" class="field" placeholder="Your Entry">
+            <input #user type="text" class="field" placeholder="Your Entry">
           </div><br>
           <div class="fieldName ps">
             <p>Contraseña</p>
           </div><br>
           <div class="fieldLine">
-            <input type="text" class="field" placeholder="Your Entry">
+            <input #password type="password" class="field" placeholder="Your Entry">
           </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
         <div class="loginButton">
-          <a href="#">INICIAR SESIÓN</a>
+          <a (click)="logIn(user.value, password.value, content)" href="#">INICIAR SESIÓN</a>
         </div>
       </div>
     </div>
@@ -40,4 +40,14 @@
       <span class="registration">Registrarse</span>
     </div>
   </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-body">
+      <p>Datos Incorrectos</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cerrar</button>
+    </div>
+  </ng-template>
+
 </div>
