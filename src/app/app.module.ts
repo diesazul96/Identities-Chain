@@ -15,16 +15,34 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { LoginComponent } from '../login/login.component';
 import { MenuComponent } from '../menu/menu.component';
 import { RegistryComponent } from '../registry/registry.component';
+import {DocumentoComponent} from '../documento/documento.component';
+import {CedulaComponent} from '../nueva-cedula/nuevacedula.component';
+
+
+//Dropdowns Material Imports
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import{ MatInputModule} from '@angular/material/input';
+
+//Imports para el datepicker
+import{ MatDatepickerModule} from '@angular/material/datepicker';
+import{MatNativeDateModule} from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent, MenuComponent, RegistryComponent, VisualizadorDocumento, AñadirDocumento
+    AppComponent, LoginComponent, MenuComponent, RegistryComponent, VisualizadorDocumento, AñadirDocumento, DocumentoComponent,
+    CedulaComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatFormFieldModule, MatInputModule, AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
