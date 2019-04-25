@@ -14,23 +14,16 @@
           </select>
         </mat-form-field>
         <p>Usuario (Clave Pública)</p>
-        <input type="text"/><br>
-        <button type="button" class="btn btn-default newDocBoton">Siguiente</button>
+        <input #key type="text"/><br>
+        <button type="button" class="btn btn-default newDocBoton" (click)="fetchRowData(key.value)" >Siguiente</button>
 
       </div>
 
 
     </div>
 
-
-    <div class="col-lg-3 col-md-3 thirdColumn">
-      <div class="okCircle">
-        <div class="checkmark">
-
-        </div>
-      </div>
-    </div>
 
   </div>
 
 </div>
+<router-outlet></router-outlet>
