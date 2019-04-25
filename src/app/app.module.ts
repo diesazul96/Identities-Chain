@@ -21,10 +21,7 @@ import{ MatDatepickerModule} from '@angular/material/datepicker';
 import{MatNativeDateModule} from '@angular/material';
 
 
-import {RouterModule, Routes,ActivatedRoute} from '@angular/router';
-const appRoutes : Routes=[
-  {path : 'nuevacedula/:key', component : CedulaComponent}
-];
+
 
 @NgModule({
   declarations: [
@@ -34,16 +31,15 @@ const appRoutes : Routes=[
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-
+    FormsModule
 
 
   ],

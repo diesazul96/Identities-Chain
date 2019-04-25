@@ -15,21 +15,13 @@
         </mat-form-field>
         <p>Usuario (Clave Pública)</p>
         <input #key type="text"/><br>
-        <button type="button" class="btn btn-default newDocBoton" routerLink="nuevacedula/{{key.value}}" >Siguiente</button>
+        <button type="button" class="btn btn-default newDocBoton" (click)="fetchRowData(key.value)" >Siguiente</button>
 
       </div>
 
 
     </div>
 
-
-    <!-- <div class="col-lg-3 col-md-3 thirdColumn">
-      <div class="okCircle">
-        <div class="checkmark">
-
-        </div>
-      </div>
-    </div> -->
 
   </div>
 
