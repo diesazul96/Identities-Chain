@@ -1,5 +1,8 @@
+import { VisualizadorDocumento } from './visualizador-documento/visualizador-documento.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AñadirDocumento } from './añadir-documento';
+
 import { LoginComponent } from 'src/login/login.component';
 import { MenuComponent } from 'src/menu/menu.component';
 import { RegistryComponent } from 'src/registry/registry.component';
@@ -11,7 +14,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'registry', component: RegistryComponent },
-  {path : 'nueva-cedula/:key', component : CedulaComponent}
+  {path : 'nueva-cedula/:key', component : CedulaComponent},
+  {path: 'aniadirdocumento', component : AñadirDocumento},
+  {path: 'verdocumento', component : VisualizadorDocumento},
+  {path: 'documento', component : DocumentoComponent}
 ];
 
 @NgModule({
