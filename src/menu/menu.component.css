@@ -38,6 +38,10 @@ div.menuArea{
   margin-bottom: 10px;
 }
 
+div.menuDropdown{
+  cursor: pointer;
+}
+
 div.areaName{
   display: inline;
   float: left;
