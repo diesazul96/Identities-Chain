@@ -20,9 +20,7 @@ import {CedulaComponent} from '../nueva-cedula/nuevacedula.component';
 
 
 //Dropdowns Material Imports
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import{ MatInputModule} from '@angular/material/input';
 
 //Imports para el datepicker
 import{ MatDatepickerModule} from '@angular/material/datepicker';
