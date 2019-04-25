@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore , AngularFirestoreCollection} from '@angular/fire/firestore';
 import { User } from 'src/registry/user';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   private db: AngularFirestore;
   userCollectionRef: AngularFirestoreCollection<User>;
 
-  constructor(db: AngularFirestore, config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(db: AngularFirestore, config: NgbModalConfig, private modalService: NgbModal, private router: Router) {
     this.db = db;
     this.userCollectionRef = db.collection<User>('users');
 
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
     for (let i = 0; i < this.users.length; i++) {
       if(this.users[i].user == user && this.users[i].password == password){
         flag = true;
-        console.log("ok :)");
+        this.router.navigateByUrl(`${'/menu'}`);
       }
     }
     if(flag == false){

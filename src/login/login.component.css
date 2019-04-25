@@ -73,7 +73,8 @@ div.registration{
   margin-bottom: 100px;
 }
 
-span.registration{
+a.registration{
+  text-decoration: none;
   color: white;
   font-size: 15pt;
   cursor: pointer;
