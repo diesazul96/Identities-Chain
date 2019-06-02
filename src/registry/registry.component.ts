@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore , AngularFirestoreCollection} from '@angular/fire/firestore';
 import { User } from './user';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class RegistryComponent implements OnInit {
   @Input() password: string;
   @Input() password2: string;
 
-  constructor(db: AngularFirestore, config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(db: AngularFirestore, config: NgbModalConfig, private modalService: NgbModal, private router: Router) {
     this.db = db;
     this.userCollectionRef = db.collection<User>('users');
 
@@ -59,6 +60,8 @@ export class RegistryComponent implements OnInit {
       this.password2 = '';
 
       this.modalService.open(content, { centered: true, size:'sm' });
+
+      this.router.navigateByUrl(`${'/menu'}`);
 
       return this.db.collection('users').add({
         user: us.user, password: us.password
